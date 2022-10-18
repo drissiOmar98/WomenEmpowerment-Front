@@ -1,0 +1,12 @@
+<nav class="nav nav-tabs d-flex justify-content-between flex-nowrap border-bottom border-dark p-2">
+    <div class="d-flex flex-nowrap">
+        <h1 class="display-5 float-start font-weight-bold text-dark ml-3 mr-4 my-1">{{ title }}</h1>
+    </div>
+    <div class="d-flex flex-nowrap">
+        <button class="btn btn-outline-dark btn-sm my-3 mr-2" routerLinkActive="active" [routerLink]="['/front/frontEnd/covid/map/active']">Active</button>
+        <button class="btn btn-outline-dark btn-sm my-3 mr-2" routerLinkActive="confirmed" [routerLink]="['/front/frontEnd/covid/map/confirmed']">Confirmed</button>
+        <button class="btn btn-outline-dark btn-sm my-3 mr-2" routerLinkActive="recovered" [routerLink]="['/front/frontEnd/covid/map/recovered']">Recovered</button>
+        <button class="btn btn-outline-dark btn-sm my-3 mr-2" routerLinkActive="deceased" [routerLink]="['/front/frontEnd/covid/map/deceased']">Deceased</button>
+        <button class="btn btn-outline-dark btn-sm my-3 mr-3 text-nowrap" routerLinkActive="million" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/front/frontend/covid/map']">Per Million</button>
+    </div>
+</nav>

@@ -1,0 +1,31 @@
+<div class="container">
+  <div>
+    <h2>Add Appointment :</h2>
+  </div>
+
+  <form >
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Date of Appointment</label>
+      <input type="date" [(ngModel)]= "newAppointment.dateApp" name="DateApp" class="form-control">
+    </div>
+
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >Remark</label>
+      <input type="text" [(ngModel)]= "newAppointment.remark" name="remark" class="form-control">
+    </div>
+
+
+
+    <div class="mt-2">
+      <button type="submit" (click)="AddAppointment()" class="btn btn-success">Add</button>
+      <div>
+        <h3>{{ message }}</h3>
+      </div>
+
+    </div>
+  </form>
+</div>
+

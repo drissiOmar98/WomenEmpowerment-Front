@@ -1,0 +1,495 @@
+
+<!--<button routerLink="/addpartner" class="btn btn-success">Add Partner</button> <br><br>
+
+<div class="from-group col-md-3 " style="float:right" >
+  <label> Search </label>
+  <input class="form-control" type="search" (ngModelChange)="SearchPartner(key.value)" #key="ngModel" ngModel
+         name="key" placeholder="Search partner" >
+</div>-->
+
+
+
+  <!--<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col"  *ngFor="let p of partners  ">
+      <div class="card">
+        <img src="assets/img/avatar.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-text">Name : {{p.name}}</h5> <br>
+          <h5 class="card-title">email : {{p.email}}</h5><br>
+          <h5 class="card-title">AvailableSeats : {{p.availableSeats}}</h5>
+        </div>
+        <div>
+          <button id="c"  *ngIf="p.idPartner" class="btn btn-danger" (click)="deletePartner(p.idPartner)"   >
+            Delete
+          </button>
+          <button id="a" routerLink="/editpartner/{{p.idPartner}}" class="btn btn-light"> Update</button>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>-->
+
+<!--<br>
+<h3 style="text-align: center">Choose Export Format</h3>
+<br>
+<div class="row">
+  <div class="col-12">
+    <div style="text-align: center; margin-top: 50px">
+      <div class="col-3" style="display: inline-block;cursor: pointer;margin-left: 10px">
+        <a (click)="exportpdf()">  <img src="assets/img/pdf.svg.png" width="10px"></a>
+        <a (click)="exportExcel()">  <img src="assets/img/excel.png" width="10px"></a>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!-- /.card-header -->
+<!--<div class="card-body">
+
+  <div class="container"  >
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>idPartner</th>
+        <th>name</th>
+        <th>country</th>
+        <th>fees</th>
+        <th>Active</th>
+        <th>availableSeats</th>
+        <th>email</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of partners">
+
+        <td>{{p.idPartner}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.country}}</td>
+        <td>{{p.fees}}</td>
+        <td>{{p.active}}</td>
+        <td>{{p.availableSeats}}</td>
+        <td>{{p.email}}</td>
+        <td>
+          <button class="btn btn-outline-danger" *ngIf="p.idPartner" (click)="deletePartner(p.idPartner)">Delete</button>
+        </td>
+        <td>
+          <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" routerLink="/editpartner/{{p.idPartner}}"> Update</button>
+        </td>
+
+
+      </tr>
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <th>idPartner</th>
+        <th>name</th>
+        <th>country</th>
+        <th>fees</th>
+        <th>Active</th>
+        <th>availableSeats</th>
+        <th>email</th>
+      </tr>
+      </tfoot>
+    </table>
+
+  </div>-->
+
+
+
+
+<!--<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+        <th scope="col">Continent</th>
+        <th scope="col">Language</th>
+        <th scope="col">LevelOfEducation</th>
+        <th scope="col">availableSeats</th>
+        <th scope="col">active</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let p of partners">
+        <td>{{ p.idPartner }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.country }}</td>
+        <td>{{ p.continent }}</td>
+        <td>{{ p.language }}</td>
+        <td>{{ p.levelOfEducation }}</td>
+        <td>{{ p.availableSeats }}</td>
+        <td>{{ p.active }}</td>
+        <td>
+          <button *ngIf="p.idPartner" (click)="deletePartner(p.idPartner)">Delete</button>
+        </td>
+        <td>
+          <button routerLink="/editpartner/{{p.idPartner}}"> Update</button>
+        </td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>-->
+<div class="content-body width-1500" id="main-container">
+  <!-- Data list view starts -->
+  <section id="data-list-view" class="data-list-view-header">
+    <div class="action-btns d-none">
+      <div class="btn-dropdown mr-1 mb-1">
+        <div class="btn-group dropdown actions-dropodown">
+          <button type="button" class="btn btn-white px-1 py-1 dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#"><i class="feather icon-trash"></i>Delete</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-archive"></i>Archive</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-file"></i>Print</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-save"></i>Another Action</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- export Modal -->
+    <div class="modal fade" id="exportModal" tabindex="-3" role="dialog" aria-labelledby="exportModelLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exportModelLabel">choose Export format</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <a (click)="exportpdf()"> <img src="assets/images/icons/pdf.png" width="100px " height="200px" alt=""></a>
+            <a (click)="exportExcel()">  <img src="assets/images/icons/excel.png" width="100px" height="200px" ></a>
+            <div class="modal-footer">
+              <button type="button" id="close" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="action-edit"><i class="feather icon-download badge-light-info" (click)="onOpenModal( editUniversity,'export')" ></i></span>
+
+
+    <br>
+    <label> Search </label>
+
+
+    <form  (click)="SearchMultiple(key.value)">
+      <div class="from-group row">
+        <div class="col-6 col-sm-3">
+          <input class="form-control ag-row-hover"  type="search"  #key="ngModel" ngModel
+                 name="key" placeholder="Search University" >
+        </div>
+
+        <div class="col-6 col-sm-3">
+          <button class="btn btn-outline-soundcloud ag-row " type="submit" (click)="SearchMultiple(key.value)" > Search </button>
+        </div>
+      </div>
+    </form>
+
+
+
+    <br>
+
+    <!-- DataTable starts -->
+    <div class="table-responsive">
+      <table class="table data-list-view">
+        <thead>
+        <tr>
+          <th>idPartner</th>
+          <th>name</th>
+          <th>country</th>
+          <th>fees</th>
+          <th>Active</th>
+          <th>CapacityReception</th>
+          <th>geographicalArea</th>
+          <th>Demands</th>
+          <th>QrCode</th>
+          <th>Delete/Update/Details</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let p of partners" >
+          <td class="product-price">{{p.idPartner}}</td>
+          <td>
+            <div class="chip chip-warning">
+              <div class="chip-body">
+                <div class="chip-text">{{p.name}}</div>
+              </div>
+            </div>
+          </td>
+          <td class="product-name">{{p.country}}</td>
+          <td class="product-price">{{p.fees}} </td>
+          <td class="product-name">{{p.active}}</td>
+          <td class="product-price">{{p.capacityReception}}</td>
+          <!--<td class="product-name">{{p.email}}</td>-->
+          <td class="product-name">{{p.geographicalArea}}</td>
+          <!--<td class="product-name">{{p.special}}</td>-->
+
+          <td><button class="btn btn-link"  routerLink="/home/Exchange-Student-Management/ListUniversitiesDemands/{{p.idPartner}}"  >View Demands</button></td>
+          <td>
+            <ngx-qrcode [elementType]="elementType"  [value]="p.email" [width]="60"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode>
+          </td>
+
+          <td class="product-action">
+            <span class="action-delete"><i class="feather icon-trash badge-icon"  *ngIf="p.idPartner" (click)="onOpenModal(p,'delete')"></i></span>
+            <span class="action-edit"><i class="feather icon-edit badge-light-info" (click)="onOpenModal(p, 'edit')" ></i></span>
+            <span class="detail-total"><i class="feather icon-external-link badge-light-success" (click)="onOpenModal(p, 'details')" ></i></span>
+          </td>
+
+
+
+        </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <!-- DataTable ends -->
+
+    <!-- add new sidebar starts -->
+    <div class="add-new-data-sidebar "  id="addUniversityModal"  >
+      <div class="overlay-bg"></div>
+      <div class="add-new-data">
+        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
+          <div>
+            <h4 class="text-uppercase">List View Data</h4>
+          </div>
+          <div class="hide-data-sidebar">
+            <i class="feather icon-x"></i>
+          </div>
+        </div>
+        <div class="data-items pb-3">
+          <div class="data-fields px-2 mt-3">
+            <div class="row">
+
+              <div class="col-sm-12 data-field-col">
+                <label>Name</label>
+                <input name="name" type="text" class="class-control"  #a ="ngModel" [(ngModel)]="partner.name" required pattern="[a-zA-Z]*"  >
+              </div>
+              <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                <div *ngIf="a.errors?.required">the name is required field</div>
+                <div *ngIf="a.errors?.pattern">the name  does not seem right</div>
+              </div>
+
+              <div class="col-sm-12 data-field-col">
+                <label>Country</label>
+                <input name="country" type="text" class="class-control"  #c ="ngModel" [(ngModel)]="partner.country" required pattern="[a-zA-Z]*"  >
+              </div>
+              <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                <div *ngIf="c.errors?.required">the name is required field</div>
+                <div *ngIf="c.errors?.pattern">the name  does not seem right</div>
+              </div>
+
+              <div class="col-sm-12 data-field-col">
+                <label >fees</label>
+                <input type="number" class="form-control" #f ="ngModel" [(ngModel)]="partner.fees"   required >
+              </div>
+              <div class="alert alert-danger" *ngIf="f.invalid && f.touched">
+                the fees is required field
+              </div>
+
+              <div class="col-sm-12 data-field-col">
+                <label >Active</label>
+                <input type="boolean" class="form-control" #a ="ngModel" [(ngModel)]="partner.active"   required >
+              </div>
+              <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+                the active is required field
+              </div>
+
+
+
+              <div class="col-sm-12 data-field-col">
+                <label >CapacityReception</label>
+                <input name="CapacityReception" type="number" class="class-control"  #e ="ngModel" [(ngModel)]="partner.capacityReception" required >
+              </div>
+              <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+                the capacity reception is required field
+              </div>
+
+              <div class="col-sm-12 data-field-col">
+                <label>Email</label>
+                <input name="email" type="text" class="class-control"  #ee ="ngModel" [(ngModel)]="partner.email" required pattern="[a-zA-Z]*"  >
+              </div>
+              <div class="alert alert-danger" *ngIf="ee.invalid && ee.touched">
+                <div *ngIf="ee.errors?.required">the email is required field</div>
+                <div *ngIf="ee.errors?.pattern">the email  does not seem right</div>
+              </div>
+
+
+
+              <div class="col-sm-12 data-field-col">
+                <label for="data-category"> Geographical Area </label>
+                <select  class="form-control" [(ngModel)]="partner.geographicalArea" id="data-category"  required>
+                  <option value="AFRICA">AFRICA</option>
+                  <option value="AMERICA">AMERICA</option>
+                  <option value="ASIA">ASIA</option>
+                  <option value="EUROPE">EUROPE</option>
+                  <option value="Oceania">Oceania</option>
+                </select>
+              </div>
+
+
+              <div class="col-sm-12 data-field-col">
+                <label for="data-status">Speciality</label>
+                <select   class="form-control" [(ngModel)]="partner.special"    id="data-status" required>
+                  <option value="COMPUTERSCIENCE" >COMPUTERSCIENCE</option>
+                  <option value="BUSINESS">BUSINESS</option>
+                  <option value="ARCHITECTURE">ARCHITECTURE</option>
+                  <option value="MANAGEMENT">MANAGEMENT</option>
+                  <option value="OTHER">OTHER</option>
+                </select>
+              </div>
+
+
+            <div class="form-group col-md-4"  >
+                <label  >Add Image </label>
+                <input  type="file"  (change)="onFileSelected($event)" >
+                <img [src]="imgURL" height="100" width="150"  *ngIf="imgURL">
+
+              </div>
+
+             <!-- <div class="form-group" >
+                <br>
+                <label  >Add Image </label>
+                <input type="file" (change)="onFileChanged($event)">
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+              </div>-->
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
+          <div class="add-data-btn" >
+            <button class="btn btn-primary"  (click)="savePartner()" data-dismiss="add-new-data-sidebar"  >Add Data</button>
+          </div>
+          <div class="cancel-data-btn">
+            <button class="btn btn-outline-danger" >Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- add new sidebar ends -->
+
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="updateUniversityModal" tabindex="-1" role="dialog" aria-labelledby="universityEditModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateEmployeeModalLabel">Edit University {{editUniversity?.idPartner}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #editForm="ngForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" ngModel="{{editUniversity?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+              </div>
+              <input type="hidden" ngModel="{{editUniversity?.idPartner}}" name="id" class="form-control" id="id" placeholder="Email">
+
+
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input type="country" ngModel="{{editUniversity?.country}}" name="country" class="form-control" id="country" placeholder="country">
+              </div>
+              <div class="form-group">
+                <label for="fees">fees</label>
+                <input type="number" ngModel="{{editUniversity?.fees}}" name="fees" class="form-control" id="fees" placeholder="fees">
+              </div>
+              <div class="form-group">
+                <label for="active">Active</label>
+                <input type="boolean" ngModel="{{editUniversity?.active}}" name="active" class="form-control" id="active" name="active" placeholder="active">
+              </div>
+              <div class="form-group">
+                <label for="capacityReception">capacityReception</label>
+                <input type="number" ngModel="{{editUniversity?.capacityReception}}" name="capacityReception" class="form-control" id="capacityReception" placeholder="capacityReception">
+              </div>
+              <div class="form-group">
+                <label for="email">email</label>
+                <input type="text" ngModel="{{editUniversity?.email}}" name="email" class="form-control" id="email" placeholder="email">
+              </div>
+              <div class="form-group">
+                <label for="geographicalArea">geographicalArea</label>
+                <input type="text" ngModel="{{editUniversity?.geographicalArea}}" name="geographicalArea" class="form-control" id="geographicalArea" placeholder="geographicalArea">
+              </div>
+              <div class="form-group">
+                <label for="special">special</label>
+                <input type="text" ngModel="{{editUniversity?.special}}" name="special" class="form-control" id="special" placeholder="special">
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <button (click)="updatePartner(editForm.value,editUniversity.idPartner)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteUniversityModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModelLabel">Delete University</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete university {{deleteUniversity?.name}}?</p>
+            <div class="modal-footer" >
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button  (click)="deletePartner(deleteUniversity.idPartner);showToastr()" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Notification for no university -->
+    <div *ngIf="partners?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">NO University!</h4>
+        <p>No Universities were found.</p>
+      </div>
+    </div>
+
+
+
+
+  </section>
+  <!-- Data list view end -->
+
+</div>
+

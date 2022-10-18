@@ -1,0 +1,28 @@
+<a (click)="ExportPDF()"> <img src="assets/images/icons/pdf.png" alt=""></a>
+
+<div class="container">
+<h2>Complaint List</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id Complaint</th>
+    <th>Date of Complaint</th>
+    <th>Description</th>
+    <th>Complaint Type</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let complaint of comlpaints ">
+    <th scope="row">{{complaint.idCom}}</th>
+    <td>{{complaint.dateCom}}</td>
+    <td>{{complaint.description}}</td>
+    <td>{{complaint.type}}</td>
+    <td><button class="btn btn-danger" title="Delete" (click)=" deleteComplaintById(complaint)" ><i class="fas fa-trash"></i></button></td>
+    <td><button class="btn btn-primary" title="Edit" [routerLink]="['/updateComplaint',complaint.idCom] "><i class="fa fa-edit"></i></button></td>
+
+  </tr>
+  </tbody>
+</table>
+</div>

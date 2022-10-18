@@ -1,0 +1,283 @@
+
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+    <label> Search </label>
+
+
+    <form  (click)="SearchMultiple(key.value);SearchHistrique(key.value)">
+      <div class="from-group row">
+      <div class="col-6 col-sm-3">
+        <input class="form-control ag-row-hover"  type="search"  #key="ngModel" ngModel
+               name="key" placeholder="Search Formation" >
+      </div>
+
+      <div class="col-6 col-sm-3">
+        <button class="btn btn-outline-soundcloud ag-row " type="submit" > Search </button>
+      </div>
+      </div>
+    </form>
+
+
+
+  <br>
+
+  <div class="card-header">
+    <h3 class="card-title"> DataTable with Courses details </h3>
+    <br>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+
+    <div class="container"  >
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Niveau</th>
+          <th>Domain</th>
+          <th>Frais</th>
+          <th>Delete</th>
+          <th>Update</th>
+          <th>Add quiz</th>
+          <th>QrCode</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let l of listFomation">
+
+          <td>{{l.title}}</td>
+          <td>{{l.level}}</td>
+          <td>{{l.domain}}</td>
+          <td>{{l.frais}}</td>
+          <td >
+            <button class="btn btn-outline-danger" (click)="deleteFormation(l.idFormation)">Delete</button>
+          </td>
+          <td>
+            <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.idFormation)" >Update</button>
+          </td>
+          <td>
+            <button class="btn btn-outline-instagram  " [routerLink]="['../Question',l.idFormation]">Add Quiz</button>
+          </td>
+          <td>
+            <ngx-qrcode [elementType]="elementType"  [value]="l.toString()" [width]="50"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode>
+          </td>
+
+        </tr>
+
+        </tbody>
+        <tfoot>
+        <tr>
+          <th>Titre</th>
+          <th>Niveau</th>
+          <th>Domain</th>
+          <th>Frais</th>
+          <th>Delete</th>
+          <th>Update</th>
+          <th>Add quiz</th>
+          <th>QrCode</th>
+        </tr>
+        </tfoot>
+      </table>
+
+    </div>
+
+
+
+    <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: #00a8c6" >
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exmpleModelLabel">Edits Formation</h5>
+          <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close"  >X</button>
+
+        </div>
+        <div class="modal-body" >
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> Title </span>
+            <input type="text" class="form-control" [(ngModel)]="fr.title" >
+          </div>
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> nbrMaxParticipant </span>
+            <input type="number" class="form-control" [(ngModel)]="fr.nbrMaxParticipant" >
+          </div>
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> nbrHeures </span>
+            <input type="number" class="form-control" [(ngModel)]="fr.nbrHeures" >
+          </div>
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> frais </span>
+            <input type="number" class="form-control" [(ngModel)]="fr.frais" >
+          </div>
+
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> dateDebut </span>
+            <input type="date" class="form-control" [(ngModel)]="fr.start" >
+          </div>
+          <div class="input-group row-cols-md-3" >
+            <span class="input-groupe-text "> dateFin </span>
+            <input type="date" class="form-control" [(ngModel)]="fr.end" >
+          </div>
+          <div class="form-group row-cols-md-3">
+            <label  >Niveau</label>
+            <select  #niveau="ngModel" [(ngModel)]="fr.level" name="niveau" class="form-control"  required >
+              <option selected value="DEBUTANT">DEBUTANT</option>
+              <option value="INTERMEDIAIRE">INTERMEDIAIRE</option>
+              <option value="AVANCE">AVANCE</option>
+            </select>
+          </div>
+          <div class="form-group row-cols-md-3">
+            <label  >Domain</label>
+            <select #domain="ngModel" [(ngModel)]="fr.domain" name="domain" class="form-control"  required >
+              <option selected value="INFORMATIQUE">INFORMATIQUE</option>
+              <option value="ART">ART</option>
+              <option value="CINEMA">CINEMA</option>
+              <option value="MUSIQUE">MUSIQUE</option>
+              <option value="DANCE">DANCE</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-outline-success" (click)="UpdateFormation(fr,idF)" > Update </button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    </div>
+
+
+
+
+    <div class="card card-success">
+      <div class="card-header">
+        <h3 class="card-title"> number of students </h3>
+
+        <div class="card-body">
+
+          <button class="btn btn-outline-microsoft " (click)="this.getNbrApprenantByFormation();ToggleForm()">
+            Nb Apprenant by Formation</button>
+
+
+
+        </div>
+      </div>
+    </div>
+
+      <div class="card-body" *ngIf="sowFormateur">
+        <div class="chart">
+          <google-chart #chart
+                        [title]="title"
+                        [type]="type2"
+                        [data]="data2"
+                        [options]="options"
+                        [width]="width"
+                        [height]="height">
+          </google-chart>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+
+  <div class="container">
+    <button (click)="ToggleForm() " class="btn btn-success">add new courses</button>
+  </div>
+    <br><br>
+
+
+
+
+
+
+    <div *ngIf="sowFormateur" class="container" >
+
+      <app-list-fomateur (eventForm)="dataId($event)"  ></app-list-fomateur>
+
+      <h1 > Add Formation </h1>
+
+      <form #f="ngForm" class="form-group"   >
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label >Title</label>
+            <input type="text" class="form-control"  #titre="ngModel" [(ngModel)]="fr.title" name="title" required placeholder="Email">
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label >nbrMaxParticipant</label>
+            <input type="number" class="form-control" #nbrMaxParticipant="ngModel" [(ngModel)]="fr.nbrMaxParticipant"  name="nbrMaxParticipant" required placeholder="Password">
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label >nbrHeures</label>
+          <input type="number" class="form-control" #nbrHeures="ngModel" [(ngModel)]="fr.nbrHeures"  required name="nbrHeures" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label >frais</label>
+          <input type="number" class="form-control"   #frais="ngModel" [(ngModel)]="fr.frais" required name="frais" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label >dateDebut</label>
+            <input type="date" class="form-control" #dateDebut="ngModel" [(ngModel)]="fr.start" name="dateDebut"  required >
+          </div>
+          <div class="form-group col-md-6">
+            <label >dateFin</label>
+            <input type="date" class="form-control" #dateFin="ngModel" [(ngModel)]="fr.end" name="dateFin" required >
+          </div>
+
+          <div class="form-group col-md-4">
+            <label  >Add Image </label>
+            <input  type="file"  (change)="onFileSelected($event)" multiple>
+            <img [src]="imgURL" height="100" width="150"  *ngIf="imgURL">
+
+          </div>
+
+
+
+          <div class="form-group col-md-4">
+            <label >Niveau</label>
+            <select  #niveau="ngModel" [(ngModel)]="fr.level" name="niveau" class="form-control"  required >
+              <option selected value="BEGINNER">BEGINNER</option>
+              <option value="INTERMEDIATE">INTERMEDIATE</option>
+              <option value="ADVANCED">ADVANCED</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label >Domain</label>
+            <select #domain="ngModel" [(ngModel)]="fr.domain" name="domain" class="form-control"  required >
+              <option selected value="INFORMATIQUE">INFORMATIQUE</option>
+              <option value="ART">ART</option>
+              <option value="CINEMA">CINEMA</option>
+              <option value="MUSIQUE">MUSIQUE</option>
+              <option value="DANCE">DANCE</option>
+            </select>
+          </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="addFormation(idF); f.reset();UpdateTable2()"
+                [disabled]="titre.invalid ||nbrHeures.invalid||nbrMaxParticipant.invalid||frais.invalid||dateDebut.invalid||dateFin.invalid||domain.invalid||niveau.invalid" data-toggle="tooltip" data-placement="right" *ngIf="f.valid" > Add Courses </button>
+      </form>
+
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+  </div>
+
+
+

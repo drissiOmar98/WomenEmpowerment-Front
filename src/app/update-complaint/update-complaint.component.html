@@ -1,0 +1,36 @@
+<div class="container">
+  <div>
+    <h2>Update Complaint :</h2>
+  </div>
+
+  <form >
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Date Of Complaint</label>
+      <input type="date" [(ngModel)]= "currentComplaint.dateCom" name="Date Of Complaint" class="form-control">
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label >Description</label>
+      <input type="text" [(ngModel)]= "currentComplaint.description" name="description" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+      <label >Complaint Type</label>
+      <select class="form-control" name="Complaint Type" id="type" [(ngModel)]="currentComplaint.type">
+        <option value=""></option>
+        <option value="PUBLICATION">PUBLICATION</option>
+        <option value="TRAINING">TRAINING</option>
+        <option value="OFFER">OFFER</option>
+        <option value="CANDIDACY">CANDIDACY</option>
+      </select>
+    </div>
+
+
+
+    <div class="mt-2">
+      <button type="submit" (click)="updateComplaint()" class="btn btn-success">Update</button>
+
+    </div>
+  </form>
+</div>

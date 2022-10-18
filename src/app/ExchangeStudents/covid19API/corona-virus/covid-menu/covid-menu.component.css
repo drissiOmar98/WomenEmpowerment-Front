@@ -1,0 +1,35 @@
+.nav {
+    top: 0px;
+    height: 80px;
+    width: 100%;
+}
+
+.active {
+    background-color: white !important;
+    border-color: #0275d8 !important;
+    color: #0275d8 !important;
+}
+
+.confirmed {
+    background-color: white !important;
+    border-color: #5cb85c !important;
+    color: #5cb85c !important;
+}
+
+.recovered {
+    background-color: white !important;
+    border-color: #5bc0de !important;
+    color: #5bc0de !important;
+}
+
+.deceased {
+    background-color: white !important;
+    border-color: #f0ad4e !important;
+    color: #f0ad4e !important;
+}
+
+.million {
+    background-color: white !important;
+    border-color: #d9534f !important;
+    color: #d9534f !important;
+}

@@ -1,0 +1,24 @@
+<a (click)="exportExcel()">  <img src="assets/images/icons/excel.png" width="50px" height="100px" ></a>
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h1 style="color: green;font-size-adjust: revert">Liste of Appointment</h1>
+      <table class="table table-striped ">
+        <thead>
+        <tr> <th>Id Appointment</th> <th>Date Of Appointment</th> <th>Remark</th>  <th>Delete</th><th>Update</th></tr>
+        </thead>
+        <tbody *ngFor="let appoin of appointments">
+        <tr>
+          <th scope="row">{{appoin.idApp}}</th>
+
+          <td>{{appoin.dateApp}}</td>
+          <td>{{appoin.remark}}</td>
+          <td><button class="btn btn-danger" title="Delete" (click)="deleteAppointmentById(appoin)" ><i class="fas fa-trash"></i></button></td>
+          <td><button class="btn btn-primary" title="Edit" [routerLink]="['/updateAppointment',appoin.idApp] "><i class="fa fa-edit"></i></button></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

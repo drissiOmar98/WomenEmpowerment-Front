@@ -1,0 +1,19 @@
+#back {
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    min-width: 100%;
+    min-height: 100%;
+}
+#details {
+    position: absolute;
+    bottom: auto;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    height: auto;
+    min-width: 380px;
+    max-width: 800px;
+}

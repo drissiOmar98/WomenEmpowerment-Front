@@ -1,0 +1,160 @@
+<!-- breadcrumb area start -->
+<div class="bd-page-title-area bd-page-title-bg pt-220 pb-155" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="bd-page-title text-center z-index">
+          <h2 class="breadcrumb-title">Partner Details</h2>
+          <div class="breadcrumb-menu">
+            <nav class="breadcrumb-trail breadcrumbs">
+              <ul class="trail-items">
+                <li class="trail-item trail-begin"><a href="index.html">Home</a></li>
+                <li class="trail-item trail-middle"><i class="far fa-chevron-right"></i></li>
+                <li class="trail-item trail-end"><span>Partner Details</span></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb area end -->
+
+
+
+<!-- service details area start here -->
+<section class="bd-service-details-area pt-150 pb-100">
+  <div class="container">
+    <a href="#" class="theme-btn-rounded" [routerLink]="['/front/frontEnd/ListUniversitiesFront']">Back to partner list <i class="far fa-arrow-alt-to-bottom"></i></a>
+    <br>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="bd-service-details mb-20">
+          <div class="bd-service-details-img mb-50">
+            <img src="assets/images/uni.jpg" alt="img not found">
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <h2 class="bd-section-title mb-25">Description</h2>
+          <p class="mb-30">When I skim through the documentation of popular frameworks, I find the features described in Part 1 straight away. When I read the web platform documentation (for example, on MDN), I find many confusing patterns of how to do things, without a conclusive representation of data-binding, list synchronization, or reactivity. I will try to draw some guidelines of how to approach these problems on the web platform, without requiring a framework (in other words, by going vanilla).</p>
+          <p class="mb-30">{{university.description}}</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bd-service-sidebar mb-50">
+          <div class="bd-service-widget gray-bg mb-30">
+            <div class="bd-service-sidebar-category">
+              <h5 class="bd-service-sidebar-category-title mb-20">Information</h5>
+              <div class="bd-service-sidebar-infos">
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Name</span>
+                  <h6>{{ university.name }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Fees</span>
+                  <h6>{{university.fees | currency: 'USD' }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Country</span>
+                  <h6>{{university.country}}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Speciality</span>
+                  <h6>{{ university.special }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Geographical Area</span>
+                  <h6>{{ university.geographicalArea }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Capacity Reception</span>
+                  <h6>{{ university.capacityReception }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Language</span>
+                  <h6>{{ university.language }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info mb-25">
+                  <span>Active</span>
+                  <h6>{{ university.active }}</h6>
+                </div>
+                <div class="bd-service-sidebar-info">
+                  <span>Email</span>
+                  <h6>{{university.email}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bd-service-sidebar-btn">
+            <!--<a href="#" class="theme-btn-black w-full" >Upload CV<i class="far fa-arrow-alt-to-bottom"></i></a>-->
+            <label class="btn btn-elegant col-sm-5">
+              <input type="file" (change)="selectFile($event)">
+            </label>
+            <div class="bd-about-text-two-btn">
+              <button class="theme-btn w-full mb-20" (click)="uploadCv();showToastr() ">Upload CV</button>
+            </div>
+            <button href="#" class="theme-btn w-full mb-20" (click)="addDemand();showToastr1()"  >Add Demand</button>
+            <h2>Pay with : </h2>
+            <div id="payments" ></div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <button class="btn btn-outline-success"   >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.498 4.498 0 0 1 7.965 13a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242.63 0 1.46-.118 2.152-.242a26.58 26.58 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434zm6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434z"/>
+        </svg>
+      </button>
+
+      <button class="btn btn-outline-success" (click)="addReact()"  >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-angry" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zm6.991-8.38a.5.5 0 1 1 .448.894l-1.009.504c.176.27.285.64.285 1.049 0 .828-.448 1.5-1 1.5s-1-.672-1-1.5c0-.247.04-.48.11-.686a.502.502 0 0 1 .166-.761l2-1zm-6.552 0a.5.5 0 0 0-.448.894l1.009.504A1.94 1.94 0 0 0 5 6.5C5 7.328 5.448 8 6 8s1-.672 1-1.5c0-.247-.04-.48-.11-.686a.502.502 0 0 0-.166-.761l-2-1z"/>
+        </svg>
+      </button>-->
+
+
+
+
+
+
+      <!--comment section -->
+      <div class="container mt-5 mb-5">
+        <div class="row height d-flex justify-content-left align-items-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="p-3">
+                <h6>Comments</h6>
+              </div>
+              <div class="mt-3 d-flex flex-row align-items-center p-3 form-color"> <img src="https://i.imgur.com/zQZSWrt.jpg" width="50" class="rounded-circle mr-2"><input type="text" class="form-control" placeholder="Enter your comment..." [(ngModel)]="com.comment"><button type="submit" class="btn btn-success" (click)="addComment()">Send</button>   </div>
+              <div class="mt-2" *ngFor="let c of comments" >
+                <div class="d-flex flex-row p-3"> <img src="https://i.imgur.com/zQZSWrt.jpg" width="40" height="40" class="rounded-circle mr-3">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex flex-row align-items-center"> <span class="mr-2">Brian selter</span> <small class="c-badge">Top Comment</small> </div> <small>{{c.dateComment}}</small>
+                    </div>
+                    <p class="text-justify comment-text mb-0">{{c.comment}}</p>
+                    <div class="d-flex flex-row user-feed"> <span class="wish"><i class="fa fa-heartbeat mr-2"></i>24</span> <span class="ml-3"><i class="fa fa-comments-o mr-2"></i><button type=" submit" class="btn btn-outline-danger"(click)="report(c,c.idComment);showToastr2()">Report</button></span> </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid py-3">
+        <h1>maps</h1>
+
+        <div id="map" class="map"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- service details area end here -->
+

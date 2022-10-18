@@ -1,0 +1,39 @@
+img {
+  width: 200px;
+  height: 225px;
+  border-radius: 30px;
+  display : inline-grid;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top : 20px;
+}
+
+#buy{
+  float: right;
+}
+
+#pick{
+  float: right;
+}
+
+
+.card {
+  width: 190px;
+  height: 425px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe,
+  -20px -20px 60px #ffffff;
+}
+
+
+
+
+
+.green {
+  background-color: lightskyblue;
+}
+
+.red {
+  background-color: darkslateblue;
+}

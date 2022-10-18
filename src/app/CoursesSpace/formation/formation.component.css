@@ -1,0 +1,16 @@
+
+
+
+.e-schedule .e-appointment-details
+{
+  padding: 0 !important;
+}
+
+.template-wrapper {
+  width: 3000px;
+  background: springgreen;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}

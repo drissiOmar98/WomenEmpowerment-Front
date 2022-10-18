@@ -1,0 +1,75 @@
+<!--<div class=" container">
+  <h1>Add Partner Institution  </h1>
+  <form #f="ngForm" >
+
+
+
+    <div class="form-group">
+      <label> Name</label>
+      <input name="name" type="text" class="class-control"  #a ="ngModel" [(ngModel)]="partner.name" required pattern="[a-zA-Z]*">
+    </div> <br>
+    <div class="alert alert-danger" *ngIf="a.invalid && a.touched">
+      <div *ngIf="a.errors?.required">the name is required field</div>
+      <div *ngIf="a.errors?.pattern">the name  does not seem right</div>
+    </div>
+
+    <div class="form-group">
+      <label>availableSeats</label>
+      <input name="availableSeats" type="number" class="class-control"  #e ="ngModel" [(ngModel)]="partner.capacityReception" required>
+    </div> <br>
+    <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+      the availableSeats is required field
+    </div>
+
+    <div class="form-group">
+      <label>email</label>
+      <textarea name="email" type="text" class="class-control"  #e ="ngModel" [(ngModel)]="partner.email" required></textarea>
+    </div>
+    <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+      the email  is required field
+    </div>
+
+
+
+  </form>
+
+</div>-->
+<br >
+<input placeholder="Get Weather of Country">
+<br>
+<br>
+<div id="divWeatherMain">
+  <div *ngIf="WeatherData.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-sun sun"></i>
+  </div>
+  <div *ngIf="!WeatherData.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-moon moon"></i>
+  </div>
+  <div class="weatherWidgetRow cloudDiv">
+    <i class="fas fa-cloud fa-3x cloud"></i>
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{WeatherData.temp_celcius}}°</div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">{{WeatherData.temp_min}}° / {{WeatherData.temp_max}}°</div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{WeatherData.temp_feels_like}}°</div>
+  <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{WeatherData.name}}</div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{WeatherData.main.humidity}}%</div>
+</div>
+
+<br>
+<br>
+
+<div class="container-fluid py-3">
+  <h1>Angular TomTom</h1>
+
+  <div id="map" class="map"></div>
+</div>
+
+
+
+
+
+
+
+
+
+

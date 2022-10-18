@@ -1,0 +1,112 @@
+<!--<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col"  *ngFor="let p of partners  ">
+    <div class="card">
+      <img src="assets/images/uni.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-text">Name : {{p.name}}</h5> <br>
+        <h6 class="card-title">email : {{p.email}}</h6><br>
+        <h6 class="card-title">AvailableSeats : {{p.capacityReception}}</h6>
+        <a  routerLink="/home/Exchange-Student-Management/DetailUniversity/{{p.idPartner}}" class="mt-5" >Details University</a>
+      </div>
+       <br>
+    </div>
+    <div style="font-size:x-large; color: orange;">
+      <ngb-rating [max]="5"  ></ngb-rating>
+    </div>
+  </div>
+
+</div>-->
+
+
+<!-- breadcrumb area start -->
+<div class="bd-page-title-area bd-page-title-bg pt-220 pb-155">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="bd-page-title text-center z-index">
+          <h2 class="breadcrumb-title">Partners</h2>
+          <div class="breadcrumb-menu">
+            <nav class="breadcrumb-trail breadcrumbs">
+              <ul class="trail-items">
+                <li class="trail-item trail-begin"><a href="index.html">Home</a></li>
+                <li class="trail-item trail-middle"><i class="far fa-chevron-right"></i></li>
+                <li class="trail-item trail-end"><span>List Partners</span></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb area end -->
+
+<!-- blog area start here -->
+<section class="bd-blog-area pt-150 pb-145">
+  <div class="container" >
+    <div class="row mb-30">
+      <div class="col-xl-4 col-lg-4 col-md-6" *ngFor="let p of partners  ">
+        <div class="bd-blog mb-30">
+          <div class="bd-blog-img">
+            <a href="blog-details.html"><img src="../../../assets/images/uni.jpg" alt="blog image not found"></a>
+          </div>
+          <div class="bd-blog-text">
+            <div class="bd-blog-meta mb-15">
+              <ul>
+                <li><a href="blog-details.html"><i class="flaticon-calendar"></i>21 Feb 2022</a></li>
+                <li><a href="blog-details.html"><i class="flaticon-chat"></i>12 Comments</a></li>
+              </ul>
+            </div>
+            <h4 class="bd-blog-title mb-40"><a href="blog-details.html">Name : {{p.name}}</a></h4>
+            <h6 class="card-title">email : {{p.email}}</h6>
+            <h6 class="card-title">CapacityReception : {{p.capacityReception}}</h6>
+            <div class="bd-blog-author">
+              <!--<div class="bd-blog-author-info">
+                <img src="../../../assets/front/img/blog/blog-author-1.jpg" alt="author image not found">
+                <h6 class="bd-blog-author-info-title">Daniyel</h6>
+              </div>-->
+
+              <fieldset class="rating">
+                <ng-container *ngFor="let num of [5, 4, 3, 2 ,1]">
+                  <input (click)="setRate()" [id]="'star'+num" [value]="num-0.5" name="rating" type="radio" />
+                  <label class="full" [for]="'star'+num"></label>
+
+                </ng-container>
+              </fieldset>
+
+
+              <div style="font-size:x-large; color: orange;">
+                <ngb-rating [max]="5"   ></ngb-rating>
+              </div>
+              <div class="bd-blog-author-link">
+                <a  routerLink="/front/frontEnd/PartnerDetailFront/{{p.idPartner}}">Read More <i class="far fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <div class="basic-pagination">
+          <ul>
+            <li><span aria-current="page" class="page-numbers current">1</span></li>
+            <li><a class="page-numbers" href="#">2</a></li>
+            <li><a class="page-numbers" href="#">3</a></li>
+            <li><a class="next page-numbers" href="#">
+              <i class="fal fa-long-arrow-right"></i>
+            </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- blog area end here -->
+
+
+
+

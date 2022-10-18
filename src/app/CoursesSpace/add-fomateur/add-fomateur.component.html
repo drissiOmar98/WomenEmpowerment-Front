@@ -1,0 +1,172 @@
+<div class="content-body">
+  <!-- Data list view starts -->
+  <section id="data-list-view" class="data-list-view-header">
+    <div class="action-btns d-none">
+      <div class="btn-dropdown mr-1 mb-1">
+        <div class="btn-group dropdown actions-dropodown">
+          <button type="button" class="btn btn-white px-1 py-1 dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#"><i class="feather icon-trash"></i>Delete</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-archive"></i>Archive</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-file"></i>Print</a>
+            <a class="dropdown-item" href="#"><i class="feather icon-save"></i>Another Action</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a (click)="ExportPDF()"> <img src="assets/images/icons/pdf.png" alt=""></a>
+
+    <!-- DataTable starts -->
+    <div class="table-responsive">
+      <table class="table data-list-view">
+        <thead>
+        <tr>
+          <th></th>
+          <th>nbrMAx</th>
+          <th>titre</th>
+          <th>niveau</th>
+          <th>nbrHeures</th>
+          <th>domain</th>
+          <th>frais</th>
+          <th>delete</th>
+          <th>update</th>
+          <th>QrCode</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let l of listFomation" >
+          <td></td>
+          <td class="product-price">{{l.nbrMaxParticipant}}</td>
+          <td>
+            <div class="chip chip-warning">
+              <div class="chip-body">
+                <div class="chip-text">{{l.title}}</div>
+              </div>
+            </div>
+          </td>
+          <td class="product-name">{{l.level}}</td>
+          <td class="product-price">{{l.nbrHeures}} </td>
+          <td class="product-name">{{l.domain}}</td>
+
+          <td>
+            <div class="progress progress-bar-success">
+              <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="40" aria-valuemax="100" style="width:{{l.nbrHeures}}%"  ></div>
+            </div>
+          </td>
+          <td class="product-action">
+            <span class="action-delete"><i class="feather icon-trash" (click)="deleteFormation(l.idFormation)"></i></span>
+          </td>
+
+
+          <td class="product-action">
+            <span class="action-edit"><i class="feather icon-edit" (click)="ToggleForm();dataId(l.idFormation)" ></i></span>
+          </td>
+
+          <td>
+            <ngx-qrcode [elementType]="elementType"  [value]="l.domain" [width]="50"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+    <!-- DataTable ends -->
+
+    <!-- add new sidebar starts -->
+    <div class="add-new-data-sidebar">
+      <div class="overlay-bg"></div>
+      <div class="add-new-data">
+        <div class="div mt-2 px-2 d-flex new-data-title justify-content-between">
+          <div>
+            <h4 class="text-uppercase">List View Data</h4>
+          </div>
+          <div class="hide-data-sidebar">
+            <i class="feather icon-x"></i>
+          </div>
+        </div>
+        <div class="data-items pb-3">
+          <div class="data-fields px-2 mt-3">
+            <div class="row">
+              <div class="col-sm-12 data-field-col">
+                <label for="data-name" >Title</label>
+                <input type="text" class="form-control" [(ngModel)]="fr.title" id="data-name" >
+              </div>
+              <div class="col-sm-12 data-field-col">
+                <label >nbrMaxParticipant</label>
+                <input type="number" class="form-control" [(ngModel)]="fr.nbrMaxParticipant" >
+              </div>
+              <div class="col-sm-12 data-field-col">
+                <label >NbrHeures</label>
+                <input type="number" class="form-control" [(ngModel)]="fr.nbrHeures" >
+              </div>
+              <div class="col-sm-12 data-field-col">
+                <label >Frais</label>
+                <input type="number" class="form-control" [(ngModel)]="fr.frais" >
+              </div>
+              <div class="col-sm-12 data-field-col">
+                <label >DateDebut</label>
+                <input type="date" class="form-control" [(ngModel)]="fr.start" >
+              </div>
+              <div class="col-sm-12 data-field-col">
+                <label >dateFin</label>
+                <input type="date" class="form-control" [(ngModel)]="fr.end" >
+              </div>
+
+
+
+
+
+
+              <div class="col-sm-12 data-field-col">
+                <label for="data-category"> Niveau </label>
+                <select  class="form-control" [(ngModel)]="fr.level"  id="data-category" required>
+                  <option value="BEGINNER">BEGINNER</option>
+                  <option value="INTERMEDIATE">INTERMEDIATE</option>
+                  <option value="ADVANCED">ADVANCED</option>
+                </select>
+              </div>
+
+
+              <div class="col-sm-12 data-field-col">
+                <label for="data-status">Domain</label>
+                <select   class="form-control" [(ngModel)]="fr.domain"   id="data-status" required>
+                  <option value="ART" >ART</option>
+                  <option value="CINEMA">CINEMA</option>
+                  <option value="MUSIQUE">MUSIQUE</option>
+                  <option value="DANCE">DANCE</option>
+                </select>
+              </div>
+
+
+              <div class="form-group col-md-4">
+                <label  >Add Image </label>
+                <input  type="file"  (change)="onFileSelected($event)" multiple>
+                <img [src]="imgURL" height="100" width="150"  *ngIf="imgURL">
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
+          <div class="add-data-btn">
+            <button class="btn btn-primary" *ngIf="show" (click)="UpdateFormation(fr,idF)">Edit Data</button>
+            <button class="btn btn-primary" *ngIf="!show" (click)="addFormation(2)">Add Data</button>
+          </div>
+          <div class="cancel-data-btn">
+            <button class="btn btn-outline-danger">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- add new sidebar ends -->
+  </section>
+  <!-- Data list view end -->
+
+</div>

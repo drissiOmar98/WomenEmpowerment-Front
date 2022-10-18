@@ -1,0 +1,124 @@
+<!--<div class="card card-success">
+  <div class="card-header">
+    <h3 class="card-title"> number of Sad Reacts By University</h3>
+
+    <div class="card-body" id="a">
+      <div style="display: block  ;" >
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+
+
+      <button class="btn btn-outline-microsoft " >
+        Nb Sad Reacts By University</button>
+
+    </div>
+  </div>
+</div>-->
+<div class="card card-success" >
+  <div class="card-header ">
+
+
+    <div class="jumbotron text-lg-center">
+      <h6 class="card-title" style="font-size: small">Number of students by university</h6>
+      <button (click)="getstatNbStudentByUniversity()"></button>
+    </div>
+
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-6 offset-md-3 ">
+
+          <div class="chart-wrapper">
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [plugins]="barChartPlugins"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+            </canvas>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  </div>
+
+
+
+
+
+<div class="card card-success">
+  <div class="card-header">
+    <h3 class="card-title">stat Rating by  University</h3>
+
+
+    <div style="display: block;">
+      <canvas baseChart
+              [datasets]="barChartData1"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType1">
+      </canvas>
+    </div>
+
+
+      <button class="btn btn-outline-microsoft " (click)="getstatRating()">
+        Rating By University</button>
+
+    </div>
+  </div>
+
+<div class="card card-success">
+  <div class="card-header">
+    <h3 class="card-title">stat Comment  by  University</h3>
+
+
+    <div style="display: block;">
+      <canvas baseChart
+              [datasets]="barChartData2"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType2"  id=" simple-doughnut-chart">
+      </canvas>
+    </div>
+
+
+    <button class="btn btn-outline-microsoft " (click)="getNumberCommentByUniversity()">
+      Nb Comment By University</button>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

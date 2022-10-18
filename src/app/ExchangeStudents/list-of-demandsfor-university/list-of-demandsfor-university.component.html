@@ -1,0 +1,56 @@
+
+<a  [routerLink]="['/home/Exchange-Student-Management/ListUniversities']" class="mt-5" >Back to University list</a>
+<!-- DataTable starts -->
+<div class="table-responsive">
+  <table class="table data-list-view">
+    <thead>
+    <tr>
+      <th>idCandidacy</th>
+      <th>status</th>
+      <th>dateOFCandidacy</th>
+      <th>dateResponse</th>
+      <th>Accept</th>
+      <th>Reject</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr   *ngFor="let d of demands" >
+      <td class="product-price">{{d.idCandidacy}}</td>
+      <td>
+        <div class="chip chip-warning">
+          <div class="chip-body">
+            <div class="chip-text">{{d.status}}</div>
+          </div>
+        </div>
+      </td>
+      <td class="product-name">{{d.dateOFCandidacy}}</td>
+      <td class="product-price">{{d.dateResponse}} </td>
+      <td><button type="button" class="btn btn-success" (click)="acceptDEmand(d,d.idCandidacy)">Accept</button></td>
+      <td><button type="button" class="btn btn-danger">Reject</button></td>
+
+
+
+
+    </tr>
+
+
+    </tbody>
+  </table>
+</div>
+<!-- DataTable ends -->
+
+
+
+
+
+
+
+
+<!-- Notification for no university -->
+<div *ngIf="demands?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO Demands!</h4>
+    <p>No Demands were found.</p>
+  </div>
+</div>
